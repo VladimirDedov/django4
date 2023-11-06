@@ -1,20 +1,24 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from django.template.loader import render_to_string
+
+menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+
 
 def index(request):
-    return HttpResponse('Главная страница')
+    context = {'title': 'Главная страница',
+               'menu': menu}
+    return render(request, 'women/index.html', context=context)
+
+
+def about(request):
+    context = {'title': 'О сайте!'}
+    return render(request, 'women/about.html', context=context)
+
 
 def categories(request, cat_slug):
-    # st=''
-    # if request.GET:
-    #     for query in request.GET.items():
-    #         st+=str(query[0])+'='+str(query[1])+'|'
-    #     print(st.strip('|'))
-    # else:
-    #     print("Пустая юля")
-
-    print(f'Zapros {request.GET}')
     return HttpResponse(f'Категория: {cat_slug}')
+
 
 def page_not_found(request, exception):
     return HttpResponseNotFound("<h1> Page not found </h1>")
