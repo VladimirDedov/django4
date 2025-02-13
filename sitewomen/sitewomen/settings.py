@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
-INSTALLED_APPS = [#Коллекция приложений
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,8 +55,8 @@ ROOT_URLCONF = 'sitewomen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],#позволяет прописывать нестандартные пути к файлам - шаблонам
-        'APP_DIRS': True,# Искать подкатаог templates по умолчанию в приложениях
+        'DIRS': [],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
